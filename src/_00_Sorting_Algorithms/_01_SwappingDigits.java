@@ -25,9 +25,7 @@ class _01_SwappingDigits {
 	//1. Complete the method so that the first two elements of the array are swapped
 	public static void swapArrayOfTwo(int[] arr) {
 		int zero = arr[0];
-		for(int i=1;i<arr.length;i++) {
-			arr[0]=arr[i];
-		}
+		arr[0]=arr[1];
 		arr[1] = zero;
 	}
 	
@@ -42,6 +40,15 @@ class _01_SwappingDigits {
 				arr[i] = zero;
 			}
 			zero = arr[i];
+		}
+		while(true) {
+			zero = arr[0];
+			for(int i=1;i<arr.length;i++) {
+				if(arr[i-1]>arr[i]) {
+					sortIntArray(arr);
+				}
+			}
+			break;
 		}
 	}
 	
