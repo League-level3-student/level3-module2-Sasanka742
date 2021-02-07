@@ -2,7 +2,22 @@ package _00_Sorting_Algorithms;
 
 import java.util.Random;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
 public class BogoSorter extends Sorter {
+	@Test
+	void test() {
+		
+		
+		int[] z = {7, 3, 5, 9, 2};
+		int[] q = {2, 3, 5, 7, 9};
+		sort(z, null);
+		assertArrayEquals(q, z);
+		
+	}
+	
 	public BogoSorter() {
 		type = "Bogo";
 	}
@@ -20,6 +35,16 @@ public class BogoSorter extends Sorter {
 	//1. Complete the sort method using the Bogo sort algorithm. 
 	@Override
 	void sort(int[] array, SortingVisualizer display) {
-
+		for(int i=array.length;i>0;i--) {
+			for(int j=0;j>1;i++) {
+				if(array[j]>array[j+1]) {
+					int rand =  new Random().nextInt(array.length);
+					int temp = array[rand];
+					int	rand2 =  new Random().nextInt(array.length);
+					array[rand] = array[rand2];
+					array[rand2] = temp;
+				}
+			}
+		}
 	}
 }
