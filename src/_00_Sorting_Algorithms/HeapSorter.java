@@ -33,8 +33,8 @@ public class HeapSorter extends Sorter {
         	int temp = array[0];
         	array[0] = array[i];
         	array[i] = temp;
-        	
-        	heapSort(array,i,0,display);
+        	display.updateDisplay();
+        	heapSort(array,0,i,display);
         }
 	}
 	
@@ -42,7 +42,7 @@ public class HeapSorter extends Sorter {
 		//2. create an integer called largest and set it equal to i
 		int largest = i;
 		//3. create an integer called l and set it equal to 2 * i + 1
-        int l = 2 * 1 + 1;
+        int l = 2 * i + 1;
 		//4. create an integer called r and set it equal to 2 * i + 2
         int r = 2 * i + 2;
         //5. if l is less than n 
@@ -64,8 +64,9 @@ public class HeapSorter extends Sorter {
         	int temp = array[i];
         	array[i] = array[largest];
         	array[largest] = temp;
-        	
-        	heapSort(array,n,largest,display);
+        	display.updateDisplay();
+        	heapSort(array,largest,n,display);
+
         }
 	}
 

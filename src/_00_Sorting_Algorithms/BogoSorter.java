@@ -7,16 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class BogoSorter extends Sorter {
-	@Test
-	void test() {
-		
-		
-		int[] z = {7, 3, 5, 9, 2};
-		int[] q = {2, 3, 5, 7, 9};
-		sort(z, null);
-		assertArrayEquals(q, z);
-		
-	}
 	
 	public BogoSorter() {
 		type = "Bogo";
@@ -35,8 +25,8 @@ public class BogoSorter extends Sorter {
 	//1. Complete the sort method using the Bogo sort algorithm. 
 	@Override
 	void sort(int[] array, SortingVisualizer display) {
-		for(int i=array.length;i>0;i--) {
-			for(int j=0;j>1;i++) {
+		for(int i=array.length-1;i>0;i--) {
+			for(int j=0;j<i;j++) {
 				if(array[j]>array[j+1]) {
 					int rand =  new Random().nextInt(array.length);
 					int temp = array[rand];
@@ -44,7 +34,9 @@ public class BogoSorter extends Sorter {
 					array[rand] = array[rand2];
 					array[rand2] = temp;
 				}
+				display.updateDisplay();
 			}
 		}
 	}
+	
 }
