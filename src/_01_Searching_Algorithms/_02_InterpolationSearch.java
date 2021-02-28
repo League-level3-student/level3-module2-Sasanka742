@@ -24,11 +24,26 @@ public class _02_InterpolationSearch {
         //   start is less than or equal to end
         //   value is greater than or equal to the array element at start
         //   value is less than or equal to the array element at end
-
+      	if(start==end) {
+      		if(array[start]==value) {
+      			return start;
+      		}else {
+      			return -1;
+      		}
+      	}
 		//4. If start is equal to end,
 		//     then check if the array element at start is equal to the value
 		//     and return start if it is, otherwise return -1.
+		int position = start + (((end - start) * (value - array[start])) / (array[end] - array[start]));
+		if(array[position] == value) {
+			return position;
+		}
 		
+		if(array[position]<value) {
+			start = position + 1;
+		}else{
+			end = position - 1;
+		}
 		//5. create an integer called position
         	//  initialize it to the following:
         	//  start + (((end - start) * (value - array[start])) / (array[end] - array[start]));
