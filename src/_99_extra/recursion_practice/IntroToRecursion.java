@@ -32,7 +32,18 @@ public class IntroToRecursion {
 		}
 	}
 	
+	public static int recursiveDivision(int number, int numberToDevideBy) {
+		if(numberToDevideBy>=number) {
+			return 0;
+		}else{
+			System.out.println(number+"-");
+			return number - recursiveDivision(number, numberToDevideBy+1);
+		}
+		
+	}
 	public static void main(String[] args) {
-		countDown(20);
+		recursiveDivision(6,3);
+		
+		
 	}
 }
