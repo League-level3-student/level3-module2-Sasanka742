@@ -33,10 +33,10 @@ public class IntroToRecursion {
 	}
 	
 	public static int recursiveDivision(int number, int numberToDevideBy) {
-		if(numberToDevideBy>=number) {
-			return 0;
+		System.out.println(number+"-");
+		if(numberToDevideBy==number) {
+			return 1;
 		}else{
-			System.out.println(number+"-");
 			return number - recursiveDivision(number, numberToDevideBy+1);
 		}
 		

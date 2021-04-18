@@ -22,24 +22,27 @@ public class RecursionMath {
 	//Hint: if numberToDevideBy is bigger than number, you can't divide anymore
 	public static int recursiveDivision(int number, int numberToDevideBy) {
 		if(numberToDevideBy>=number) {
-			return 0;
+			return 1;
 		}else{
-			System.out.println(number+"-");
-			return number - recursiveDivision(number, numberToDevideBy+1);
+			return 1 + recursiveDivision(number-numberToDevideBy, numberToDevideBy);
 		}
 		
 	}
 	
 	//8. Try this one on your own!
 	public static int recursivePower(int number, int power) {
-		return 0;
+		if(power==0) {
+			return 1;
+		}else{
+			return number * recursivePower(number, power-1);
+		}
 		
 	}
 	
 	
 	
 	@Test
-	void testMultiplication() {
+	public void testMultiplication() {
 		assertEquals(12, recursiveMultiplication(3, 4));
 		//1  Add more JUnit tests like the one above to test your method
 		
@@ -47,16 +50,17 @@ public class RecursionMath {
 	
 	
 	@Test
-	void testDivision() {
+	public void testDivision() {
 		//5  Add JUnit tests to test your method
-		assertEquals(2, recursiveDivision(6,3));
+		assertEquals(5, recursiveDivision(15,3));
 		
 	}
 	
 	
 	@Test 
-	void testPower() {
+	public void testPower() {
 		//7  Add JUnit tests to test your method
+		assertEquals(25, recursivePower(5,2));
 	
 	}
 	
